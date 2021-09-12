@@ -1,0 +1,48 @@
+<section class="contacts light-section pb-24">
+    <div class="container mx-auto pt-12 comment-box">
+        <h1 class="font-bold text-2xl mb-4">All Queries</h1>
+            <table class="w-full table-auto">
+                <thead>
+                    <tr>
+                        <th class="start-head px-4 py-2  w-96 text-left">Email</th>
+                        <th class="px-4 py-2  w-96 text-left">Name</th>
+                        <th class="px-4 py-2  w-96 text-left">Subject</th>
+                        <th class="px-4 py-2  w-96 text-left">Message</th>
+                        <th class="px-4 py-2 w-96 text-left">Querry</th>
+                        <th class="start-end px-4 py-2 w-96 text-left">Date & Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(contact.length) { %>
+                        <% contact.forEach((contact)=> { %>
+                            <tr>
+                                <td class="border px-4 py-2">
+                                    <%= contact.email %>
+                                </td>
+                                <td class="border px-4 py-2">
+                                    <%= contact.name %>
+                                </td>
+                                <td class="border px-4 py-2">
+                                    <%= contact.subject %>
+                                </td>
+                                <td class="border px-4 py-2">
+                                    <%= contact.message %>
+                                </td>
+                                <td class="border px-4 py-2">
+                                    <%= contact.query %>
+                                </td>
+                                <td class="border px-4 py-2">
+                                    <%= moment(contact.createdAt).format('MMMM Do YYYY, h:mm:ss a') %>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    <% } else { %>
+                        <tr>
+                            <td class="p-4"><span>No Query Found!</span></td>
+                        </tr>
+                        <% } %>
+                </tbody>
+
+            </table>
+    </div>
+</section>
